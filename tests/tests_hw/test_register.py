@@ -1,8 +1,13 @@
+import allure
+
 from api.questions_api import api
 from http import HTTPStatus
 from utils.assertions import Assert
 
 
+@allure.feature('test_register')
+@allure.story('Отправка запроса POST - регистрация пользователя - позитивный')
+@allure.severity(allure.severity_level.NORMAL)
 def test_register_positive():
     email = 'eve.holt@reqres.in'
     password = '123'
@@ -12,6 +17,9 @@ def test_register_positive():
     Assert.validate_schema(res.json())
 
 
+@allure.feature('test_register')
+@allure.story('Отправка запроса POST - регистрация пользователя - негативный')
+@allure.severity(allure.severity_level.NORMAL)
 def test_register_negative():
     email = 'eve.holt@reqres.in'
     password = ''
